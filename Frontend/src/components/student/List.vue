@@ -16,7 +16,6 @@ const deleteStudent = async (id) => {
 </script>
 
 <template>
-  {{ studentData }}
   <div class="container mx-auto px-4 sm:px-8">
     <div class="py-8">
       <div class="flex justify-between items-center gap-4">
@@ -33,7 +32,7 @@ const deleteStudent = async (id) => {
         >
           <div v-if="error">Oops! something error: {{ error.message }}</div>
 
-          <div>
+          <div v-else>
             <table class="min-w-full leading-normal">
               <thead>
                 <tr>
@@ -62,7 +61,7 @@ const deleteStudent = async (id) => {
                   ></th>
                 </tr>
               </thead>
-              <tbody velse-if="studentData && studentData.student">
+              <tbody v-if="studentData && studentData.student">
                 <tr v-for="(stu, i) in studentData.student" :key="stu.id">
                   <td
                     class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
